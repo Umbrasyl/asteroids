@@ -9,8 +9,8 @@ Edge = tuple[pygame.Vector2, Callable[[float], pygame.Vector2]]
 
 
 class AsteroidField(pygame.sprite.Sprite):
-    containers: pygame.sprite.Group
-
+    containers: tuple[pygame.sprite.Group, ...]
+    
     edges: list[Edge] = [
         (
             pygame.Vector2(1, 0),
@@ -35,7 +35,7 @@ class AsteroidField(pygame.sprite.Sprite):
     ]
 
     def __init__(self) -> None:
-        pygame.sprite.Sprite.__init__(self, self.containers)
+        pygame.sprite.Sprite.__init__(self, *self.containers)
         self.spawn_timer = 0.0
 
     def spawn(
