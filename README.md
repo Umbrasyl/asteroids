@@ -1,0 +1,1 @@
+A python OOP and project management exercise. Creating a game with pygame.
