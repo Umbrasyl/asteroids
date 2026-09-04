@@ -46,7 +46,7 @@ class Player(CircleShape):
 
     def shoot(self) -> None:
         # The star * decomposes the position with type Vector2 back to it's components
-        new_shot = Shot(*self.position)
+        new_shot = Shot(self.position.x, self.position.y)
         unit_vector = pygame.Vector2(0, 1)
         rotated_vector = unit_vector.rotate(self.rotation)
         new_shot.velocity = rotated_vector * PLAYER_SHOT_SPEED
